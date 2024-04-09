@@ -57,6 +57,10 @@ for i in range(1, 21):
         '''.format(user_id)
     cursor.execute(user_response)
     user_answer = cursor.fetchone()
+
+    if user_answer is None or user_id == '-1':
+    # Skip this iteration and continue with the next user
+        continue
     # print(user_answer)
 #  Add in last 6 questions
     query = '''
@@ -241,6 +245,10 @@ for i in range(1, 21):
         '''.format(user_id)
     cursor.execute(user_response)
     user_answer = cursor.fetchone()
+
+    if user_answer is None or user_id == '-1':
+    # Skip this iteration and continue with the next user
+        continue
 
     query = '''
         SELECT UserID,
