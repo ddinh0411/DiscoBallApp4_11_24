@@ -367,30 +367,4 @@ function submitForm() {
     downloadButton.addEventListener('click', function() {
         saveSvg(clonedSvg, 'export_discoball.svg');
     });
-    
-    // Make an HTTP POST request to the server
-    fetch('https://discoball.vercel.app/api/server',{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            // Send the dbAnswers object to the server
-            answers: dbAnswers
-        })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to submit form');
-        }
-        return response.json(); // Assuming the server sends JSON response
-    })
-    .then(data => {
-        console.log('Form data submitted successfully:', data);
-        // Handle success, if needed
-    })
-    .catch(error => {
-        console.error('Error submitting form:', error);
-        // Handle error, if needed
-    });
 }
